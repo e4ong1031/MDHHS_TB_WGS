@@ -26,6 +26,5 @@ RUN python3.6 -m pip install multiqc==1.7
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
-
 ENTRYPOINT ["/usr/bin/env"]
 CMD ["python3.6", "Assemble.py"]

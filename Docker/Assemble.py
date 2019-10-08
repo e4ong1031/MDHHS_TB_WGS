@@ -13,8 +13,6 @@ import shutil
 import subprocess
 import argparse
 
-from pathlib import Path
-
 SCRIPT_PATH = os.path.dirname( os.path.realpath( __file__ ) )
 
 FASTQC_CMD = os.path.join( SCRIPT_PATH, "lib", "FastQC", "fastqc" )
@@ -99,6 +97,8 @@ class Assemble:
             sampleFiles = {}
             for folder in os.listdir( inputDir ):
                 match = re.match( '^([\d]{2}RF[\d]{4}).*', folder )
+                if match == None:
+                    continue
                 sampleAccession = match.group( 1 )
                 samples.append( sampleAccession )
                 sampleFolder[sampleAccession] = folder
